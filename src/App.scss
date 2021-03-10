@@ -420,7 +420,11 @@ footer {
       justify-content: space-between;
       background-color: $green;
       width: 90%;
-      height: 100px;
+      height: 70px;
+
+      @media (max-width: 1000px) {
+          height: 50px;
+      }
 
       label {
         padding: 0 20px;
