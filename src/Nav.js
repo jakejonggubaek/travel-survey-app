@@ -1,14 +1,19 @@
 import logo from './logo.png';
 
-function Nav() {
+function Nav(props) {
+
+    const {setAdmin} = props;
+
     return (
-        <header className="App-header">
-            <img src={logo} alt={logo}/>
+        <header className="App-header"> 
+            <div>
+                <img src={logo} alt={logo} />
+                <p>Jake's Travel</p>
+            </div>
             <nav>
                 <ul>
-                    <li>BOOKING</li>
-                    <li>ABOUT US</li>
-                    <li>CONTACT</li>
+                    <li onClick={() => window.location.reload(false)}>SURVEY</li>
+                    <li onClick={setAdmin}>ADMIN</li>
                 </ul>
             </nav>
         </header>

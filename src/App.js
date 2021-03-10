@@ -12,163 +12,41 @@
 import './App.scss';
 import Nav from './Nav.js';
 import questionSource from './questionSource.js';
+import Done from './Done.js';
 import firebase from './firebase.js';
 import Result from './Result';
-import { useState, useEffect} from 'react';
+import { useState } from 'react';
 
 function App() {
 
-  const answers = [
-    [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]
-  ];
-  const [currentPage, setCurrentPage] = useState('Q1');
+  //define states
+  const [userName, setUserName] = useState('');
+  const [questionResult, setQuestionResult] = useState(new Array(6).fill(''));
+  const [currentPage, setCurrentPage] = useState('');
   const [buttonActive, setButtonActive] = useState(false);
-  const [firstQuestionResult, setfirstQuestionResult] = useState(answers[0]);
-  const [secondQuestionResult, setsecondQuestionResult] = useState(answers[1]);
-  const [thirdQuestionResult, setthirdQuestionResult] = useState(answers[2]);
-  const [fourthQuestionResult, setfourthQuestionResult] = useState(answers[3]);
-  const [fifthQuestionResult, setfifthQuestionResult] = useState(answers[4]);
-  const [sixthQuestionResult, setsixthQuestionResult] = useState(answers[5]);
+  const [startActive, setStartActive] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isDone, setIsDone] = useState(false);
 
-  //reference database and save it to firebase
-  const dbRef = firebase.database().ref();
-  const database = firebase.database();
+  //start survey
+  const handleStart = (e) => {
+    e.preventDefault();
+    setStartActive(false);
+    setCurrentPage('Q1');
+  }
 
-  console.log(setfirstQuestionResult);
+  const handleChange = (e) => {
+    setUserName(e.target.value);
+  }
 
-  const handleClick = (questionNumber, answerNumber) => {
-    
-    const question = `Q${questionNumber}`;
-    const answer = `A${answerNumber}`;
-    let result = [];
-    answers[questionNumber - 1][answerNumber-1] = 1;
+  //event triggered when user clicks an option for each survey question
+  const handleClick = (questionNumber, answer) => {
 
-    if (question === 'Q1') {
-      switch(answer) {
-        case 'A1':
-          result = [1,0,0,0];
-          setfirstQuestionResult(result);
-          break;
-        case 'A2':
-          result = result = [0, 1, 0, 0];
-          setfirstQuestionResult(result);
-          break; 
-        case 'A3':
-          result = result = [0, 0, 1, 0];
-          setfirstQuestionResult(result); 
-          break;
-        case 'A4':
-          result = result = [0, 0, 0, 1];
-          setfirstQuestionResult(result); 
-          break;
-      }
-    }
+    const newArray = [...questionResult];
+    newArray[questionNumber-1] = answer;
 
-    if (question === 'Q2') {
-      switch (answer) {
-        case 'A1':
-          result = [1, 0, 0, 0];
-          setsecondQuestionResult(result);
-          break;
-        case 'A2':
-          result = result = [0, 1, 0, 0];
-          setsecondQuestionResult(result);
-          break;
-        case 'A3':
-          result = result = [0, 0, 1, 0];
-          setsecondQuestionResult(result);
-          break;
-        case 'A4':
-          result = result = [0, 0, 0, 1];
-          setsecondQuestionResult(result);
-          break;
-      }
-    }
+    setQuestionResult(newArray);
 
-    if (question === 'Q3') {
-      switch (answer) {
-        case 'A1':
-          result = [1, 0, 0, 0];
-          setthirdQuestionResult(result);
-          break;
-        case 'A2':
-          result = result = [0, 1, 0, 0];
-          setthirdQuestionResult(result);
-          break;
-        case 'A3':
-          result = result = [0, 0, 1, 0];
-          setthirdQuestionResult(result);
-          break;
-        case 'A4':
-          result = result = [0, 0, 0, 1];
-          setthirdQuestionResult(result);
-          break;
-      }
-    }
-
-    if (question === 'Q4') {
-      switch (answer) {
-        case 'A1':
-          result = [1, 0, 0, 0];
-          setfourthQuestionResult(result);
-          break;
-        case 'A2':
-          result = result = [0, 1, 0, 0];
-          setfourthQuestionResult(result);
-          break;
-        case 'A3':
-          result = result = [0, 0, 1, 0];
-          setfourthQuestionResult(result);
-          break;
-        case 'A4':
-          result = result = [0, 0, 0, 1];
-          setfourthQuestionResult(result);
-          break;
-      }
-    }
-
-    if (question === 'Q5') {
-      switch (answer) {
-        case 'A1':
-          result = [1, 0, 0, 0];
-          setfifthQuestionResult(result);
-          break;
-        case 'A2':
-          result = result = [0, 1, 0, 0];
-          setfifthQuestionResult(result);
-          break;
-        case 'A3':
-          result = result = [0, 0, 1, 0];
-          setfifthQuestionResult(result);
-          break;
-        case 'A4':
-          result = result = [0, 0, 0, 1];
-          setfifthQuestionResult(result);
-          break;
-      }
-    }
-
-    if (question === 'Q6') {
-      switch (answer) {
-        case 'A1':
-          result = [1, 0, 0, 0];
-          setsixthQuestionResult(result);
-          break;
-        case 'A2':
-          result = result = [0, 1, 0, 0];
-          setsixthQuestionResult(result);
-          break;
-        case 'A3':
-          result = result = [0, 0, 1, 0];
-          setsixthQuestionResult(result);
-          break;
-        case 'A4':
-          result = result = [0, 0, 0, 1];
-          setsixthQuestionResult(result);
-          break;
-      }
-    }
-    
     if (questionNumber !== 6){
       //for question change
     setCurrentPage(`Q${ questionNumber+1 }`);
@@ -176,89 +54,100 @@ function App() {
       //activate submit button
     setButtonActive(true);
     }
-
-
-
-     //questionSource.questions[1]['option'][secondQuestionResult.indexOf(1)]
-    //let oldData;
-
-    // dbRef.on('value', (data) => {
-    //   oldData = data.val()[question][answer];
-    // });
-
-    // rootRef.once("value")
-    //   .then(function (snapshot) {
-    //     var key = snapshot.key; // null
-    //     var childKey = snapshot.child("users/ada").key; // "ada"
-    //   });
-    // // oldData++;
-    // console.log(oldData);
-    // database.ref("Q1/A1").set(1);
-
   }
+
+  //final submit the survey result
+  const handleSubmit = () => {
+
+    const finalResults = {};
+    const results = [...questionResult];
+
+    results.forEach((answer, index) => {
+      finalResults[`Q${index}`] = answer;
+    });
+    //reference database and save it to firebase
+    const dbRef = firebase.database().ref();
+    //setQuestionResult(answers);
+    dbRef.child(userName).set(finalResults);
+    setIsDone(true);
+  }
+  
+  const setAdmin = () => {
+    setIsAdmin(true);
+  }
+
 
   return (
     <div className="App">
-      <Nav/>
+      <Nav setAdmin={setAdmin}/>
+      { !isAdmin?
       <main>
         <div className='main-section'>
-        {
-          //display questions which are stored in questionSource.js
-            questionSource.map((question, questionIndex) => {
+          <section className='landing-page' style={{ display: startActive === true ? 'flex' : 'none' }}>
+            <h1>Welcome to Jake's Travel survey.</h1>
+            <form className="start-form" onSubmit={handleStart}>
+              <div>
+              <label htmlFor='user-name'>Let us know your name: </label>
+              <input type="text" id='user-name' name='user-name' onChange={handleChange} required/>
+              </div>
+              <button type='submit'>START</button>
+            </form>       
+          </section>
+          {
+              isDone? <Done />
+            //display questions which are stored in questionSource.js
+              :questionSource.map((question, questionIndex) => {
+              
+              return (
+                <section key={`Q${questionIndex + 1}`} className={`Q${questionIndex + 1}`} style={{ display: currentPage === `Q${questionIndex + 1}` ? 'flex' : 'none' }}>
+                  <div className='wrapper'>
+                    <div className='question'>
+                      <p>Q{questionIndex+1}. {question.question}</p>
+                    </div>
+                    <div className='options'>
+                      <ul>
+                        {question.option.map((answer, answerIndex) => {
+                          return (
+                            <li key={`Q${questionIndex}-A${answerIndex + 1}`} onClick={() => handleClick(questionIndex + 1, answer)}>{answer}</li>
+                          )
+                        })}
+                      </ul>
+                    </div>
+                  </div>
+                </section>
+              )
+            })
+          }
+        </div>
+        
+        {isDone ? <div></div>
             
-            return (
-              <section key={`Q${questionIndex + 1}`} className={`Q${questionIndex + 1}`} style={{ display: currentPage === `Q${questionIndex + 1}` ? 'flex' : 'none' }}>
-                <div className='wrapper'>
-                  <div className='question'>
-                    <p>Q{questionIndex+1}. {question.question}</p>
-                  </div>
-                  <div className='options'>
-                    <ul>
-                      {question.option.map((answer, answerIndex) => {
-                        return (
-                          <li key={`Q${questionIndex}-A${answerIndex + 1}`} onClick={() => handleClick(questionIndex + 1, answerIndex + 1)}>{answer}</li>
-                        )
-                      })}
-                    </ul>
-                  </div>
+        :<div className='side-table'>
+          {
+            questionResult.map((answer, index) => {
+              
+              return (
+                <div className='side-container' key={index}>
+                  <div className='side-question'>Q{index+1}:</div>
+                  <div className='side-answer'>{answer}</div>
                 </div>
-              </section>
-            )
-          })
+              )
+            })
+          }
+          
+          <div className='side-container'>
+            <button className='submit-button' style={{ display: buttonActive === true? 'flex' : 'none' }} onClick={handleSubmit}>SUBMIT</button>
+          </div>
+          
+          
+        </div>
         }
-        </div>
-        <div className='side-table'>
-          <div className='side-container'>
-            <div className='side-question'>Q1:</div>
-            <div className='side-answer'>{questionSource[0].option[firstQuestionResult.indexOf(1)]}</div>
-          </div>
-          <div className='side-container'>
-            <div className='side-question'>Q2:</div>
-            <div className='side-answer'>{questionSource[1].option[secondQuestionResult.indexOf(1)]}</div>
-          </div>
-          <div className='side-container'>
-            <div className='side-question'>Q3:</div>
-            <div className='side-answer'>{questionSource[2].option[thirdQuestionResult.indexOf(1)]}</div>
-          </div>
-          <div className='side-container'>
-            <div className='side-question'>Q4:</div>
-            <div className='side-answer'>{questionSource[3].option[fourthQuestionResult.indexOf(1)]}</div>
-          </div>
-          <div className='side-container'>
-            <div className='side-question'>Q5:</div>
-            <div className='side-answer'>{questionSource[4].option[fifthQuestionResult.indexOf(1)]}</div>
-          </div>
-          <div className='side-container'>
-            <div className='side-question'>Q6:</div>
-            <div className='side-answer'>{questionSource[5].option[sixthQuestionResult.indexOf(1)]}</div>
-          </div>
-          <div className='side-container'>
-            <button className='submit-button' style={{ display: buttonActive === true? 'flex' : 'none' }}>SUBMIT</button>
-          </div>
-        </div>
       </main>
       
-      <Result />
+      :<Result userName={userName} />
+      }
+      <footer><p className='footer'>By Jake Jonggu Baek @ Juno College Cohort 31</p></footer>
+      
     </div>
   );
 }
