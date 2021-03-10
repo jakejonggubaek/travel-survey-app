@@ -6,9 +6,9 @@ function Nav(props) {
 
     return (
         <header className="App-header"> 
-            <div>
+            <div onClick={() => window.location.reload(false)}>
                 <img src={logo} alt={logo} />
-                <p>Jake's Travel</p>
+                <p >Jake's Travel</p>
             </div>
             <nav>
                 <ul>

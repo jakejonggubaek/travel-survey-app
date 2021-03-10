@@ -264,6 +264,11 @@ header div {
   display: flex;
 }
 
+header div:hover,
+header div:focus {
+  cursor: pointer;
+}
+
 header img {
   width: auto;
   height: 100%;

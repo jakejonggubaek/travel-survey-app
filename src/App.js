@@ -11,11 +11,14 @@
 
 import './App.scss';
 import Nav from './Nav.js';
+import Landing from './Landing.js';
 import questionSource from './questionSource.js';
 import Done from './Done.js';
+import Side from './Side.js';
 import firebase from './firebase.js';
 import Result from './Result';
 import { useState } from 'react';
+import Questions from './Questions';
 
 function App() {
 
@@ -79,71 +82,27 @@ function App() {
 
   return (
     <div className="App">
+      {/* Header and navigator*/}
       <Nav setAdmin={setAdmin}/>
       { !isAdmin?
       <main>
         <div className='main-section'>
-          <section className='landing-page' style={{ display: startActive === true ? 'flex' : 'none' }}>
-            <h1>Welcome to Jake's Travel survey.</h1>
-            <form className="start-form" onSubmit={handleStart}>
-              <div>
-              <label htmlFor='user-name'>Let us know your name: </label>
-              <input type="text" id='user-name' name='user-name' onChange={handleChange} required/>
-              </div>
-              <button type='submit'>START</button>
-            </form>       
-          </section>
+            {/* Landing page*/}
+            <Landing startActive={startActive} handleStart={handleStart} handleChange={handleChange}/>
           {
+              //Ending page
               isDone? <Done />
-            //display questions which are stored in questionSource.js
-              :questionSource.map((question, questionIndex) => {
-              
-              return (
-                <section key={`Q${questionIndex + 1}`} className={`Q${questionIndex + 1}`} style={{ display: currentPage === `Q${questionIndex + 1}` ? 'flex' : 'none' }}>
-                  <div className='wrapper'>
-                    <div className='question'>
-                      <p>Q{questionIndex+1}. {question.question}</p>
-                    </div>
-                    <div className='options'>
-                      <ul>
-                        {question.option.map((answer, answerIndex) => {
-                          return (
-                            <li key={`Q${questionIndex}-A${answerIndex + 1}`} onClick={() => handleClick(questionIndex + 1, answer)}>{answer}</li>
-                          )
-                        })}
-                      </ul>
-                    </div>
-                  </div>
-                </section>
-              )
-            })
+                //display questions which are stored in questionSource.js
+                : <Questions questionSource={questionSource} handleClick={handleClick} currentPage={currentPage}/>
           }
         </div>
         
         {isDone ? <div></div>
-            
-        :<div className='side-table'>
-          {
-            questionResult.map((answer, index) => {
-              
-              return (
-                <div className='side-container' key={index}>
-                  <div className='side-question'>Q{index+1}:</div>
-                  <div className='side-answer'>{answer}</div>
-                </div>
-              )
-            })
-          }
-          
-          <div className='side-container'>
-            <button className='submit-button' style={{ display: buttonActive === true? 'flex' : 'none' }} onClick={handleSubmit}>SUBMIT</button>
-          </div>
-          
-          
-        </div>
+            //Side container showing current answers
+            : <Side questionResult={questionResult} handleSubmit={handleSubmit} buttonActive={buttonActive}/>
         }
       </main>
-      
+       //Admin search page to get users' answers
       :<Result userName={userName} />
       }
       <footer><p className='footer'>By Jake Jonggu Baek @ Juno College Cohort 31</p></footer>

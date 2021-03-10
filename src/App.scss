@@ -60,6 +60,11 @@ header {
     display: flex;
   }
 
+  div:hover,
+  div:focus {
+   cursor: pointer;
+  }
+
   img {
     width: auto;
     height: 100%;
