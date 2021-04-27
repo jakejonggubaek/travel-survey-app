@@ -550,6 +550,39 @@ footer {
     }
   }
 
+  .contents-container {
+    display: flex;
+    align-items: center;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .image-container {
+      display: flex;
+      width: 400px;
+      overflow: hidden;
+    }
+
+    .arrow-left, .arrow-right {
+      width: 50px;
+      height: 50px;
+      z-index: 2;
+    }
+
+    .arrow-left:hover, .arrow-left:focus, .arrow-right:hover, .arrow-right:focus {
+      cursor: pointer;
+      opacity: 0.5;
+    }
+
+    .arrow-left {
+      visibility: hidden;
+    }
+  }
+
   button {
     width: 300px;
     height: 50px;

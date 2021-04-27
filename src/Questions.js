@@ -12,7 +12,7 @@ function Questions(props) {
                             <ul>
                                 {question.option.map((answer, answerIndex) => {
                                     return (
-                                        <li key={`Q${questionIndex}-A${answerIndex + 1}`} onClick={() => props.handleClick(questionIndex + 1, answer)}>{answer}</li>
+                                        <li key={`Q${questionIndex}-A${answerIndex + 1}`} onClick={() => props.handleClick(questionIndex + 1, answer, answerIndex + 1)}>{answer}</li>
                                     )
                                 })}
                             </ul>

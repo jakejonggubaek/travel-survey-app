@@ -25,6 +25,7 @@ function App() {
   //define states
   const [userName, setUserName] = useState('');
   const [questionResult, setQuestionResult] = useState(new Array(6).fill(''));
+  const [answerNumbers, setAnswerNumbers] = useState(new Array(6).fill(''));
   const [currentPage, setCurrentPage] = useState('');
   const [buttonActive, setButtonActive] = useState(false);
   const [startActive, setStartActive] = useState(true);
@@ -43,12 +44,14 @@ function App() {
   }
 
   //event triggered when user clicks an option for each survey question
-  const handleClick = (questionNumber, answer) => {
+  const handleClick = (questionNumber, answer, answerIndex) => {
 
     const newArray = [...questionResult];
+    const indexArray = [...answerNumbers];
     newArray[questionNumber-1] = answer;
-
+    indexArray[questionNumber - 1] = answerIndex;
     setQuestionResult(newArray);
+    setAnswerNumbers(indexArray);
 
     if (questionNumber !== 6){
       //for question change
@@ -70,7 +73,6 @@ function App() {
     });
     //reference database and save it to firebase
     const dbRef = firebase.database().ref();
-    //setQuestionResult(answers);
     dbRef.child(userName).set(finalResults);
     setIsDone(true);
   }
@@ -91,7 +93,7 @@ function App() {
             <Landing startActive={startActive} handleStart={handleStart} handleChange={handleChange}/>
           {
               //Ending page
-              isDone? <Done />
+              isDone ? <Done questionResult={questionResult} answerNumbers={answerNumbers}/>
                 //display questions which are stored in questionSource.js
                 : <Questions questionSource={questionSource} handleClick={handleClick} currentPage={currentPage}/>
           }
