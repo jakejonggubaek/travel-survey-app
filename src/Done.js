@@ -7,7 +7,7 @@ import answerSource from "./answerSource.js";
 function Done(props) {
     const [photos, setPhotos] = useState([]);
     const [answers] = useState(props.answerNumbers);
-    const [destination] = useState(answerSource[answers[0] - 1][answers[1] - 1][answers[5] - 1]);
+    const [destination] = useState(answerSource[answers[0] - 1][answers[1] - 1][answers[4] - 1]);
 
     useEffect(()=>{
 
