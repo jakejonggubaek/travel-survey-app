@@ -93,7 +93,7 @@ function Done(props) {
                     </div>
                 </IconContext.Provider>
             </div>
-            <button onClick={()=>window.location.reload(false)}>Go to Homepage</button>
+            <button onClick={()=>window.location.reload(false)}>Start again</button>
         </div>
     )
 }
