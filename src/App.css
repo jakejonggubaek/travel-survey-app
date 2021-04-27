@@ -931,6 +931,7 @@ footer p {
 }
 
 .done-page {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -983,6 +984,12 @@ footer p {
   display: flex;
   width: 400px;
   overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .done-page .contents-container .image-container {
+    width: 200px;
+  }
 }
 
 .done-page .contents-container .arrow-left, .done-page .contents-container .arrow-right {

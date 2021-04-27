@@ -71,7 +71,7 @@ function Done(props) {
 
     return (
         <div className='done-page'>
-            <p>How about planning to visit {destination} for next vacations</p>
+            <p>{destination}</p>
             <div className='contents-container'>
                 <IconContext.Provider value={{ className: "arrow-left" }}>
                     <div>

@@ -1,10 +1,10 @@
-const localCulture = [['new orleans', 'mexico city', 'cusco', 'montreal'], ['sicily', 'munich', 'portugal', 'istanbul'], ['kyoto', 'bangkok', 'delhi', 'jordan'], ['morocco', 'morocco', 'egypt', 'egypt']];
+const localCulture = [['New Orleans', 'Mexico city', 'Cusco', 'Montreal'], ['Portugal', 'Munich', 'Sicily', 'Istanbul'], ['Kyoto', 'Bangkok', 'Delhi', 'Jordan'], ['Morocco', 'Morocco', 'Egypt', 'Egypt']];
 
-const relaxing = [['key west', 'cuba', 'belize', 'turks and caico'], ['cyprus', 'croatia', 'french riviera', 'amalfi'], ['koh samui', 'bali', 'guam', 'bora bora'], ['Sharm El Sheikh', 'Seychelles', 'zanzibar', 'Canary Islands']];
+const relaxing = [['Cuba', 'Key West', 'Belize', 'Turks and Caico'], ['Croatia', 'French Riviera', 'Amalfi', 'Cyprus'], ['Guam', 'Koh Samui', 'Bali', 'Bora Bora'], ['Canary Islands', 'Sharm El Sheikh', 'Zanzibar','Seychelles']];
 
-const nature = [['costa rica', 'peru', 'belize', 'banff'], ['alpes nature', 'scotland', 'norway', 'azores island'], ['bali', 'hawaii', 'new zealand', 'gold coast'], ['south africa', 'tansania', 'namibia', 'madagascar']];
+const nature = [['Banff', 'Costa Rica', 'Peru', 'Belize'], ['Scotland', 'Azores island', 'Norway', 'Switzerland',], ['Hawaii', 'Bali', 'Gold Coast', 'New Zealand'], ['South Africa', 'Tansania', 'Namibia', 'Madagascar']];
 
-const shopping = [['new york', 'los angeles', 'mexico city', 'sao paulo street'], ['london', 'milano', 'paris', 'barcelona'], ['bangkok', 'seoul', 'hong kong', 'taipei'], ['cairo', 'marrakech', 'cape town', 'tunisia']];
+const shopping = [['New York', 'Mexico city', 'Los Angeles', 'Sao Paulo'], ['London', 'Milano', 'Paris', 'Barcelona'], ['Hong Kong', 'Taipei', 'Seoul', 'Bangkok'], ['Cairo', 'Marrakech', 'Cape Town', 'Tunisia']];
 
 const answerSource = [localCulture, relaxing, nature, shopping];
 

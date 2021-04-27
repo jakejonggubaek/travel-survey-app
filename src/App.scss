@@ -533,6 +533,7 @@ footer {
 
 //thank you for survey page
 .done-page {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -543,6 +544,7 @@ footer {
   p {
     text-align: center;
     font-size: $large;
+    
     color: $white;
 
     @media (max-width: 600px) {
@@ -565,6 +567,10 @@ footer {
       display: flex;
       width: 400px;
       overflow: hidden;
+
+      @media (max-width: 600px) {
+        width: 200px;
+      }
     }
 
     .arrow-left, .arrow-right {
