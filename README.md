@@ -47,7 +47,7 @@ This application will provide a survey to collect data about user's travel style
 <br/>
 
 <h2>Admin Page</h2>
-<p>Travel agent can search customer's name and check its travel preference.</p>
+<p>Travel agent can search customers' names and check their travel preferences.</p>
 <br/>
 
 <h2>Features to be added in the future</h2>
