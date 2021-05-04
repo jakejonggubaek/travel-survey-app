@@ -10,7 +10,7 @@ LIVE DEMO :https://travel-survey.netlify.app/
 <br/>
 
 <h2>Purpose</h2>
-This application will provide a survey about user's travel style & preference. The answers will be stored in data base so travel agent can target the right customers.
+This application will provide a survey to collect data about user's travel style & preference. The answers will be stored in data base so travel agent can target the right customers.
 <br/>
 
 <h2>Key feature</h2>
@@ -20,14 +20,13 @@ This application will provide a survey about user's travel style & preference. T
 <li>Survey Results Page</li>
 <li>Admin Page</li>
 </ul>
-
 <br/>
 
 <h2>Landing Page</h2>
 <img src="./src/travel.png">
 <p>1. Input box where users can type their names. </p>
 <p>2. Start button will start the survey</p>
-
+<br/>
 
 <h2>Survey Page</h2>
 <img src="./src/travel1.png">
