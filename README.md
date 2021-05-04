@@ -43,7 +43,7 @@ This application will provide a survey to collect data about user's travel style
 
 <h2>Survey Results Page</h2>
 <img src="./src/travel2.png">
-<p>Result page will show users destination recommendation based on their answers</p>
+<p>Result page will show users recommendation on travel destination based on their answers</p>
 <br/>
 
 <h2>Admin Page</h2>
