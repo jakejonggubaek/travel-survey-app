@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+<div align="center"><img src="./src/travel-logo.png" width="200px"></div>
+<h1 align="center">Jake's Travel</h1>
+<p align="center"><strong>Take a survey to let your travel agent find the best options for your vacations.</strong>
+</p>
+<br/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2>About</h2>
+Travel survey web application built with React, SASS, and RESTful API.<br/>
+LIVE DEMO :https://travel-survey.netlify.app/
+<br/>
 
-## Available Scripts
+<h2>Purpose</h2>
+This application will provide a survey about user's travel style & preference. The answers will be stored in data base so travel agent can target the right customers.
+<br/>
 
-In the project directory, you can run:
+<h2>Key feature</h2>
+<ul>
+<li>Landing Page</li>
+<li>Survey Page</li>
+<li>Survey Results Page</li>
+<li>Admin Page</li>
+</ul>
 
-### `npm start`
+<br/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<h2>Landing Page</h2>
+<img src="./src/travel.png">
+<p>1. Input box where users can type their names. </p>
+<p>2. Start button will start the survey</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+<h2>Survey Page</h2>
+<img src="./src/travel1.png">
+<p>User will be given 6 survey questions</p>
+<ul>
+<li> Purpose of travel</li>
+<li> Preferred destination</li>
+<li> Preferred season</li>
+<li> Vacation duration</li>
+<li> Budget plan</li>
+<li> Preferred travel company size</li>
+</ul>
+<br/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h2>Survey Results Page</h2>
+<img src="./src/travel2.png">
+<p>Result page will show users destination recommendation based on their answers</p>
+<br/>
 
-### `npm run build`
+<h2>Admin Page</h2>
+<p>Travel agent can search customer's name and check its travel preference.</p>
+<br/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h2>Features to be added in the future</h2>
+<p>Better website lay out and design</p>
+<p>More functions in Admin page - i.e modify question / modify answers etc</p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<h2>Copyright</h2>
+This project is licensed under the terms of the MIT license and protected by Udacity Honor Code and Community Code of Conduct. See <a href="LICENSE.md">license</a> and <a href="LICENSE.DISCLAIMER.md">disclaimer</a>
