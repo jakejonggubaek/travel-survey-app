@@ -1,4 +1,4 @@
-<div align="center"><img src="./src/travel-logo.png" width="200px"></div>
+<div align="center"><img src="./src/assets/travel-logo.png" width="200px"></div>
 <h1 align="center">Jake's Travel</h1>
 <p align="center"><strong>Take a survey to let your travel agent find the best options for your vacations.</strong>
 </p>
@@ -23,13 +23,13 @@ This application will provide a survey to collect data about user's travel style
 <br/>
 
 <h2>Landing Page</h2>
-<img src="./src/travel.png">
+<img src="./src/assets/travel.png">
 <p>1. Input box where users can type their names. </p>
 <p>2. Start button will start the survey</p>
 <br/>
 
 <h2>Survey Page</h2>
-<img src="./src/travel1.png">
+<img src="./src/assets/travel1.png">
 <p>User will be given 6 survey questions</p>
 <ul>
 <li> Purpose of travel</li>
@@ -42,7 +42,7 @@ This application will provide a survey to collect data about user's travel style
 <br/>
 
 <h2>Survey Results Page</h2>
-<img src="./src/travel2.png">
+<img src="./src/assets/travel2.png">
 <p>Result page will show users recommendation on travel destination based on their answers</p>
 <br/>
 

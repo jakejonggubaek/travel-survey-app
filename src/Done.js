@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import { IconContext } from "react-icons";
 import { BsFillCaretLeftFill, BsFillCaretRightFill } from "react-icons/bs";
-import answerSource from "./answerSource.js";
+import answerSource from "./db/answerSource.js";
 
 function Done(props) {
     const [photos, setPhotos] = useState([]);

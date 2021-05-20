@@ -9,13 +9,13 @@
 // display results page to see accumulated data
 
 
-import './App.scss';
+import './styles/App.scss';
 import Nav from './Nav.js';
 import Landing from './Landing.js';
-import questionSource from './questionSource.js';
+import questionSource from './db/questionSource.js';
 import Done from './Done.js';
 import Side from './Side.js';
-import firebase from './firebase.js';
+import firebase from './db/firebase.js';
 import Result from './Result';
 import { useState } from 'react';
 import Questions from './Questions';

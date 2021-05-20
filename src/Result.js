@@ -1,4 +1,4 @@
-import firebase from './firebase.js';
+import firebase from './db/firebase.js';
 import { useState } from 'react';
 
 function Result(props) {
